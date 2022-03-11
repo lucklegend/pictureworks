@@ -18,21 +18,8 @@ class GetClick extends Component{
   
 
 
-  saveClick = async (e) =>{
-    const {numClick} = this.state;
-    e.preventDefault();
-    document.getElementById('btnClick').innerText = 'Loading';
-    document.getElementById('btnClick').disabled = true;
-    var apiLink = "http://localhost:8000"
-    const res = await axios.get(apiLink+'/api/saveClick');
-    if(res.data.status === 200){
-      this.setState({numClick:numClick+1});
-      document.getElementById('btnClick').innerText = 'Click Me!';
-      document.getElementById('btnClick').disabled = false;
-    }
-    
+ 
 
-  }
   render(){
     const {date, numClick} = this.state;
     return (
@@ -40,7 +27,7 @@ class GetClick extends Component{
         <div className="row pt-4">
           <div className="col-md-6">
             <label>Today's Total Click: {numClick}</label> <br />
-            <button onClick={this.saveClick} className="btn btn-primary" id="btnClick">Click Me!</button>
+            <button  className="btn btn-primary" id="btnClick">Click Me!</button>
           </div>
         </div>
       </div>
